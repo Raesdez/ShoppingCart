@@ -3,7 +3,8 @@
 <!-- Add a card component for each product-->
 <div class="row">
     <div class="column" *ngFor="let product of products">
-        <app-product-card (addSelected)="addSelected($event)" [product]="product" ></app-product-card>
+        <app-product-card (addSelected)="addSelected(product)" (removeSelected)="removeSelected(product)"
+             [product]="product" ></app-product-card>
     </div>
 </div>
 

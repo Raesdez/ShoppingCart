@@ -10,7 +10,9 @@ import { Product } from '../interfaces/product';
 export class ProductCardComponent implements OnInit {
 
   @Input() product: Product
-  @Output() addSelected = new EventEmitter<boolean>() //Function to notify the list of a selected Product
+  @Output() addSelected = new EventEmitter<any>() //Function to notify the list of a selected Product
+  @Output() removeSelected = new EventEmitter<any>()
+
 
   isSelected: boolean = false
 
@@ -24,10 +26,10 @@ export class ProductCardComponent implements OnInit {
     
     if (this.isSelected) {
       //Add product to list on parent component (Product list_
-      this.addSelected.emit(true/*this.product*/)
+      this.addSelected.emit(this.product)
     } else {
       //Notify to delete a product of the list
-      this.addSelected.emit(true/*this.product*/)
+      this.removeSelected.emit(this.product)
     }
   }
 }

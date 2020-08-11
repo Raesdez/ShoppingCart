@@ -10,14 +10,13 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
   
-  selectedProducts: Product[];
+  selectedProducts: Product[] = [];
   price: number = 0;
 
   constructor() { }
 
   ngOnInit(): void {
     this.products = this.getProducts();
-    this.price = 1
   }
 
 
@@ -29,10 +28,15 @@ export class ProductListComponent implements OnInit {
   ]
   } 
 
-  addSelected($event/*product: Product*/) {
-    //this.selectedProducts.push($event)
+  addSelected(product?: Product) {
+    this.selectedProducts.push(product)
     this.setTotalPrice()
-    alert("function called")
+  }
+
+  removeSelected(product?: Product) {
+    const index = this.selectedProducts.indexOf(product) //Get index of product
+    this.selectedProducts.splice(index, 1)
+    this.setTotalPrice()
   }
 
   private setTotalPrice() {
