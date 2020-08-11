@@ -1,0 +1,18 @@
+<div class='card' *ngIf="product" (click)="toggleSelected()">
+    <!--Name and check-->
+    <div>
+        <label class="name">{{product.name | uppercase}}</label>
+        <input type="checkbox" [checked]="isSelected"/>
+    </div>
+
+    <!-- Image-->
+    <div>
+        <label>Imagen</label>
+    </div>
+
+    <!--Price and other info -->
+    <div>
+        <label class="name">{{product.price}}$</label>
+    </div>
+
+</div>

@@ -1,0 +1,12 @@
+<button>Back</button>
+
+<!-- Add a card component for each product-->
+<div class="row">
+    <div class="column" *ngFor="let product of products">
+        <app-product-card (addSelected)="addSelected($event)" [product]="product" ></app-product-card>
+    </div>
+</div>
+
+<h2>Total: {{price}}$</h2>
+
+<button>Done</button>
