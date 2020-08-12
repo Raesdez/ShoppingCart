@@ -15,6 +15,7 @@ export class ProductCardComponent implements OnInit {
 
 
   isSelected: boolean = false
+  buttonText: string = "Add to cart"
 
   constructor() { }
 
@@ -27,9 +28,15 @@ export class ProductCardComponent implements OnInit {
     if (this.isSelected) {
       //Add product to list on parent component (Product list_
       this.addSelected.emit(this.product)
+      this.buttonText = "Remove from cart"
     } else {
       //Notify to delete a product of the list
       this.removeSelected.emit(this.product)
+      this.buttonText = "Add to cart"
     }
+  }
+
+  fIsSelected(): boolean {
+    return this.isSelected
   }
 }

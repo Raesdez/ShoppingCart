@@ -1,13 +1,18 @@
-<button>Back</button>
-
-<!-- Add a card component for each product-->
-<div class="row">
-    <div class="column" *ngFor="let product of products">
-        <app-product-card (addSelected)="addSelected(product)" (removeSelected)="removeSelected(product)"
-             [product]="product" ></app-product-card>
-    </div>
+<div>
+    <button class="button back" (click)="goBack()">Back</button>
 </div>
 
-<h2>Total: {{price}}$</h2>
 
-<button>Done</button>
+    <!-- Add a card component for each product-->
+    <div class="row row-cols-1 row-cols-md-2" *ngFor="let product of products">
+        <div class="col mb-4">
+            <app-product-card (addSelected)="addSelected(product)" (removeSelected)="removeSelected(product)"
+            [product]="product" ></app-product-card>
+        </div>
+    </div>
+
+
+<div>
+    <h2>Total: {{ price | number:"1.0-2"}}$</h2>
+    <button class= "button action">Done</button>
+</div>

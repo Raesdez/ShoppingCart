@@ -1,0 +1,11 @@
+<div *ngIf="false; else nothingSelected">
+</div>
+
+
+<!-- Show label and button if there are no products selected yet-->
+<ng-template #nothingSelected>
+    <h3>You don't have any products yet</h3>
+    <a routerLink="/productList">
+        <button>Add products</button>
+    </a>    
+</ng-template>

@@ -1,18 +1,14 @@
-<div class='card' *ngIf="product" (click)="toggleSelected()">
-    <!--Name and check-->
-    <div>
-        <label class="name">{{product.name | uppercase}}</label>
-        <input type="checkbox" [checked]="isSelected"/>
+<div class="card h-100" style="width: 20rem;" *ngIf="product" (click)="toggleSelected()">
+    <div class="card-body">
+        <h5 class="name card-title">{{product.name | uppercase}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" [ngClass]="fIsSelected() ? 'btn btn-secondary': 'btn btn-primary'"
+            [textContent]="buttonText">
+            Add to cart
+        </button>
     </div>
 
-    <!-- Image-->
-    <div>
-        <label>Imagen</label>
+    <div class="name card-footer text-muted">
+        {{product.price}}$
     </div>
-
-    <!--Price and other info -->
-    <div>
-        <label class="name">{{product.price}}$</label>
-    </div>
-
 </div>

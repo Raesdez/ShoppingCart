@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'; //Info about the route
+import { Location } from '@angular/common'; //Interacts with the browser
+
 import { Product } from '../interfaces/product';
 
 @Component({
@@ -13,7 +16,7 @@ export class ProductListComponent implements OnInit {
   selectedProducts: Product[] = [];
   price: number = 0;
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
     this.products = this.getProducts();
@@ -47,6 +50,12 @@ export class ProductListComponent implements OnInit {
     }
     
     this.price = sum
+  }
+
+  //Navigation
+
+  goBack() {
+    this.location.back()
   }
 
 }
