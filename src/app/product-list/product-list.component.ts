@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'; //Info about the route
 import { Location } from '@angular/common'; //Interacts with the browser
 
 import { Product } from '../interfaces/product';
@@ -23,11 +22,12 @@ export class ProductListComponent implements OnInit {
   }
 
 
+  //TODO: Move to service and then to a mock http server
   private getProducts(): Product[] {
-   return [{name: 'Apple',price: '1.28'},
-   {name: 'Pear',price: '3'},
-   {name: 'Milk',price: '1.55'},
-   {name: 'Olive oil',price: '13'}
+   return [{name: 'Apple',price: '1.28',description: 'Yay, an apple'},
+   {name: 'Pear',price: '3',description: 'Like the apple but oddly expensive'},
+   {name: 'Milk',price: '1.55',description: 'Insert some text here, and nutritional value maybe idk'},
+   {name: 'Olive oil',price: '13',description: ':D'}
   ]
   } 
 
@@ -53,7 +53,6 @@ export class ProductListComponent implements OnInit {
   }
 
   //Navigation
-
   goBack() {
     this.location.back()
   }

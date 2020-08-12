@@ -36,6 +36,7 @@ export class ProductCardComponent implements OnInit {
     }
   }
 
+  /**For changing the button class and text when status changed**/
   fIsSelected(): boolean {
     return this.isSelected
   }
